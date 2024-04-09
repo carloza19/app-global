@@ -1,10 +1,8 @@
+import { Link } from "react-router-dom"
+import { Product } from "../App"
+
 interface Props {
-    products: Array<{
-        id: string,
-        title: string,
-        thumbnail: string,
-        price: number
-    }>
+    products: Array<Product>
 }
 
 const ProductList = ({ products }: Props) => {
@@ -12,13 +10,15 @@ const ProductList = ({ products }: Props) => {
         <ul>
             {products.map(product => {
                 return (
-                    <li key={product.id}>
-                        <button>
+
+                    <li key={product.id} >
+                        <Link to={`/detalle/${product.id}`}>
                             <img src={product.thumbnail} alt='Imagen del producto' />
                             <h2>{`$${product.price}`}</h2>
                             <p>{product.title}</p>
-                        </button>
+                        </Link>
                     </li>
+
                 )
             })}
         </ul>

@@ -1,18 +1,24 @@
+import { useParams } from "react-router-dom"
+
 interface Props {
-    product: {
+    products: Array<{
         id: string,
         title: string,
         thumbnail: string,
         price: number
-    }
+    }>
 }
 
-const ProductDetails = ({ product }: Props) => {
+
+const ProductDetails = ({products}: Props) => {
+    const { productId } = useParams()
+    const productFilter = products.find((p) => p.id === productId)
+
     return (
         <div className="card-detail">
-            <img src={product.thumbnail} alt='Imagen del producto' />
-            <h2>{`$${product.price}`}</h2>
-            <p>{product.title}</p>
+            <img src={productFilter?.thumbnail} alt='Imagen del producto' />
+            <h2>{`$${productFilter?.price}`}</h2>
+            <p>{productFilter?.title}</p>
         </div>
     )
 }
