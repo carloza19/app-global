@@ -21,7 +21,8 @@ h3 {
   padding: 0;
 }
 
-ul li, .card-detail {
+ul li,
+.card-detail {
   border-radius: 10px;
   border: 1px solid #eee;
   list-style: none;
@@ -31,7 +32,56 @@ ul li, .card-detail {
 }
 
 button {
-  background: none;
-  border: none;
-  cursor:pointer;
+  background: orangered;
+  border-radius: 10px;
+  border: 1px solid #eee;
+  padding: 10px;
+  cursor: pointer;
+
+}
+
+.modal,
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+}
+
+.overlay {
+  background: rgba(49, 49, 49, 0.8);
+}
+
+.modal-container {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.4;
+  background: #f1f1f1;
+  padding: 40px 35px 40px 35px;
+  border-radius: 3px;
+  max-width: 250px;
+  min-width: 150px;
+  min-height: 250px;
+}
+.form {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+.form-item {
+  display: grid;
+}
+
+.button-container{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
 }
