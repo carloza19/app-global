@@ -3,23 +3,12 @@ import './App.css';
 import ProductList from './components/ProductsList';
 import ProductDetails from './components/ProductsDetails';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { getAll } from './service/getProducts';
+import { getAll } from './service/products.services';
+import { ProductInterface } from './interfaces/product.interfaces';
 
-
-export interface Product {
-  _id: string,
-  title: string,
-  img: {
-    src: string,
-    alt: string
-  },
-  price: number,
-  createdAt: string,
-  updatedAt: string
-}
 
 interface AppState {
-  product: Product[]
+  product: ProductInterface[]
 }
 
 function App() {

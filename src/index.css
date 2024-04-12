@@ -21,7 +21,7 @@ h3 {
   padding: 0;
 }
 
-ul li, #card-detail {
+ul li, .card-detail {
   border-radius: 10px;
   border: 1px solid #eee;
   list-style: none;

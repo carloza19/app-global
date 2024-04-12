@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom"
-import { Product } from "../App"
+import { ProductInterface } from "../interfaces/product.interfaces"
 
 interface Props {
-    products: Array<Product>
+    products: Array<ProductInterface>
 }
 
 const ProductList = ({ products }: Props) => {

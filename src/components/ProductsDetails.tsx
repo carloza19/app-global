@@ -1,26 +1,12 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { Product } from "../App"
-import { getById } from "../service/getProducts"
-
-interface Props {
-    products: Array<{
-        _id: string,
-        title: string,
-        img: {
-            src: string,
-            alt: string
-        },
-        price: number,
-        createdAt: string,
-        updatedAt: string
-    }>
-}
+import { ProductInterface } from "../interfaces/product.interfaces"
+import { getById } from "../service/products.services"
 
 
 const ProductDetails = () => {
     const { productId } = useParams<{ productId: string | undefined }>()
-    const [product, setProduct] = useState<Product | null>(null);
+    const [product, setProduct] = useState<ProductInterface | null>(null);
 
     useEffect(() => {
         if (productId) {
@@ -30,7 +16,9 @@ const ProductDetails = () => {
         }
     }, [productId]);
 
-
+    if (!product) {
+        return <h2>Loading...</h2>;
+    }
 
     return (
         <>
@@ -39,6 +27,7 @@ const ProductDetails = () => {
                 <img src={product?.img.src} alt={product?.img.alt} />
                 <h2>{`$${product?.price}`}</h2>
                 <p>{product?.title}</p>
+                <p>{product?.description.toString()}</p>
             </div>
         </>
 
