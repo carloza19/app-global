@@ -17,6 +17,7 @@ const ProductList = ({ products }: Props) => {
                                 <img src={product.img.src} alt={product.img.alt} />
                                 <h2>{`$${product.price}`}</h2>
                                 <p>{product.title}</p>
+                                <p>{product.description}</p>
                             </Link>
                         </li>
                     )
