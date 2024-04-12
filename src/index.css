@@ -26,9 +26,10 @@ ul li,
   border-radius: 10px;
   border: 1px solid #eee;
   list-style: none;
+  margin-top: 16px;
   margin-bottom: 16px;
   max-width: 320px;
-  padding: 8px 32px;
+  padding: 15px 32px;
 }
 
 button {

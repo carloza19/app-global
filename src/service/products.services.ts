@@ -16,3 +16,18 @@ export const getById = async (id: string): Promise<ProductInterface> => {
     }
     return await res.json()
 }
+
+export const updateProduct = async (data: ProductInterface): Promise<ProductInterface> => {
+
+    const res = await fetch(`${API_URL}/${data._id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    if (!res.ok) {
+        throw new Error('Failed to update product');
+    }
+    return await res.json()
+}

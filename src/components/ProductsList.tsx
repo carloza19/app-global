@@ -12,15 +12,13 @@ const ProductList = ({ products }: Props) => {
             <ul>
                 {products.map(product => {
                     return (
-
                         <li key={product._id} >
-                            <Link to={`/detalle/${product._id}`}>
+                            <Link to={`${product._id}`}>
                                 <img src={product.img.src} alt={product.img.alt} />
                                 <h2>{`$${product.price}`}</h2>
                                 <p>{product.title}</p>
                             </Link>
                         </li>
-
                     )
                 })}
             </ul>

@@ -27,7 +27,7 @@ function App() {
         <h1>Global Ecommerce</h1>
         <Routes>
           <Route path='/products' element={<ProductList products={products} />}></Route>
-          <Route path='/detalle/:productId' element={<ProductDetails />}></Route>
+          <Route path='/products/:productId' element={<ProductDetails />}></Route>
         </Routes>
       </div>
     </BrowserRouter>

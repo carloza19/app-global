@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { ProductInterface } from "../interfaces/product.interfaces"
-import { getById } from "../service/products.services"
+import { getById, updateProduct } from "../service/products.services"
 import ProductEditModal from './ProductEditModal';
 
 
@@ -20,9 +20,7 @@ const ProductDetails = () => {
     }, [productId]);
 
     const handleSaveProduct = (updatedProduct: ProductInterface) => {
-        // Save the updated product data (e.g., make API call)
-        console.log('Updated Product:', updatedProduct);
-        // For demonstration purposes, we'll just update the state directly
+        updateProduct(updatedProduct)
         setProduct(updatedProduct);
     };
 
@@ -46,7 +44,7 @@ const ProductDetails = () => {
                 <h2>{`$${product?.price}`}</h2>
                 <p>{product?.title}</p>
                 <p>{product?.description.toString()}</p>
-                <button onClick={handleOpenEditPopup}>Edit</button>
+                <button onClick={handleOpenEditPopup}>Editar</button>
                 {isEditPopupOpen && (
                     <ProductEditModal
                         product={product}
