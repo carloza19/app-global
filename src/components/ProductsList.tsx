@@ -7,21 +7,25 @@ interface Props {
 
 const ProductList = ({ products }: Props) => {
     return (
-        <ul>
-            {products.map(product => {
-                return (
+        <>
+            <h3>Lista de Productos</h3>
+            <ul>
+                {products.map(product => {
+                    return (
 
-                    <li key={product.id} >
-                        <Link to={`/detalle/${product.id}`}>
-                            <img src={product.thumbnail} alt='Imagen del producto' />
-                            <h2>{`$${product.price}`}</h2>
-                            <p>{product.title}</p>
-                        </Link>
-                    </li>
+                        <li key={product._id} >
+                            <Link to={`/detalle/${product._id}`}>
+                                <img src={product.img.src} alt={product.img.alt} />
+                                <h2>{`$${product.price}`}</h2>
+                                <p>{product.title}</p>
+                            </Link>
+                        </li>
 
-                )
-            })}
-        </ul>
+                    )
+                })}
+            </ul>
+        </>
+
     )
 }
 

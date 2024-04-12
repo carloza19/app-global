@@ -7,10 +7,15 @@ import { getAll } from './service/getProducts';
 
 
 export interface Product {
-  id: string,
+  _id: string,
   title: string,
-  thumbnail: string,
-  price: number
+  img: {
+    src: string,
+    alt: string
+  },
+  price: number,
+  createdAt: string,
+  updatedAt: string
 }
 
 interface AppState {
@@ -30,10 +35,10 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <h1>Listado de productos</h1>
+        <h1>Global Ecommerce</h1>
         <Routes>
-          <Route path='/' element={<ProductList products={products} />}></Route>
-          <Route path='/detalle/:productId' element={<ProductDetails products={products} />}></Route>
+          <Route path='/products' element={<ProductList products={products} />}></Route>
+          <Route path='/detalle/:productId' element={<ProductDetails />}></Route>
         </Routes>
       </div>
     </BrowserRouter>
