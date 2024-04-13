@@ -31,7 +31,7 @@ function App() {
         <h1>Global Ecommerce</h1>
         <Routes>
           <Route path='/products' element={<ProductList products={products} />}></Route>
-          <Route path='/products/:productId' element={<ProductDetails onChange={handelUpdate} />}></Route>
+          <Route path='/products/:productId' element={<ProductDetails stateUpdate={handelUpdate} />}></Route>
         </Routes>
       </div>
     </BrowserRouter>
