@@ -13,12 +13,17 @@ interface AppState {
 
 function App() {
   const [products, setProducts] = useState<AppState["product"]>([])
+  const [isUpdate, setIsUpdate] = useState<Boolean>(false)
+
+  const handelUpdate = (updateValue: Boolean) => {
+    setIsUpdate(updateValue)
+  }
 
   useEffect(() => {
     getAll().then((res) => {
       setProducts(res)
     })
-  }, [])
+  }, [isUpdate])
 
   return (
     <BrowserRouter>
@@ -26,7 +31,7 @@ function App() {
         <h1>Global Ecommerce</h1>
         <Routes>
           <Route path='/products' element={<ProductList products={products} />}></Route>
-          <Route path='/products/:productId' element={<ProductDetails />}></Route>
+          <Route path='/products/:productId' element={<ProductDetails onChange={handelUpdate} />}></Route>
         </Routes>
       </div>
     </BrowserRouter>

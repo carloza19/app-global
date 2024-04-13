@@ -4,7 +4,11 @@ import { ProductInterface } from "../interfaces/product.interfaces"
 import { getById, updateProduct } from "../service/products.services"
 import ProductEditModal from './ProductEditModal';
 
-const ProductDetails = () => {
+interface Props {
+    onChange: (newValue: boolean) => void;
+}
+
+const ProductDetails:  React.FC<Props> = ({ onChange }) => {
     const { productId } = useParams<{ productId: string | undefined }>()
     const [product, setProduct] = useState<ProductInterface | null>(null);
     const [isEditPopupOpen, setIsEditPopupOpen] = useState<Boolean>(false);
@@ -20,7 +24,10 @@ const ProductDetails = () => {
 
     const handleSaveProduct = (updatedProduct: ProductInterface) => {
         updateProduct(updatedProduct).then((data) => {
-            if (data) { setIsUpdate(true) }
+            if (data) { 
+                onChange(true)
+                setIsUpdate(true)
+             }
         })
     };
 
