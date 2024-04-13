@@ -4,12 +4,11 @@ import { ProductInterface } from "../interfaces/product.interfaces"
 import { getById, updateProduct } from "../service/products.services"
 import ProductEditModal from './ProductEditModal';
 
-
-
 const ProductDetails = () => {
     const { productId } = useParams<{ productId: string | undefined }>()
     const [product, setProduct] = useState<ProductInterface | null>(null);
     const [isEditPopupOpen, setIsEditPopupOpen] = useState<Boolean>(false);
+    const [isUpdate, setIsUpdate] = useState<Boolean>(false)
 
     useEffect(() => {
         if (productId) {
@@ -17,11 +16,12 @@ const ProductDetails = () => {
                 .then((data) => setProduct(data))
                 .catch((error) => console.error('Error fetching product:', error));
         }
-    }, [productId]);
+    }, [productId, isUpdate]);
 
     const handleSaveProduct = (updatedProduct: ProductInterface) => {
-        updateProduct(updatedProduct)
-        setProduct(updatedProduct);
+        updateProduct(updatedProduct).then((data) => {
+            if (data) { setIsUpdate(true) }
+        })
     };
 
     const handleOpenEditPopup = () => {
