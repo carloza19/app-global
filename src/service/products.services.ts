@@ -5,7 +5,7 @@ const API_URL = 'http://localhost:3002/v1/products'
 export const getAll = async (): Promise<ProductInterface[]> => {
     const res = await fetch(API_URL)
     const productsList = await res.json()
-    return productsList
+    return productsList.data
 }
 
 
