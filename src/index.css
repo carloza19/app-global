@@ -38,7 +38,7 @@ button {
   border: 1px solid #eee;
   padding: 10px;
   cursor: pointer;
-
+  font-weight: bold;
 }
 
 .modal,
@@ -69,6 +69,7 @@ button {
   min-width: 150px;
   min-height: 250px;
 }
+
 .form {
   display: grid;
   justify-content: center;
@@ -76,11 +77,12 @@ button {
   gap: 15px;
   margin-top: 10px;
 }
+
 .form-item {
   display: grid;
 }
 
-.button-container{
+.button-container {
   display: flex;
   justify-content: center;
   gap: 10px;
