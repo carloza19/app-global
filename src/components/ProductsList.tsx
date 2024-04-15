@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import { ProductInterface } from "../interfaces/product.interfaces"
+import ProductDetails from "./ProductDetails"
 
 interface Props {
     products: Array<ProductInterface>
@@ -13,10 +14,7 @@ const ProductList = ({ products }: Props) => {
                     return (
                         <li key={product._id} >
                             <Link to={`${product._id}`}>
-                                <img src={product.img.src} alt={product.img.alt} />
-                                <h2>{`$${product.price}`}</h2>
-                                <p>{product.title}</p>
-                                <p>{product.description}</p>
+                                <ProductDetails product={product}/>
                             </Link>
                         </li>
                     )

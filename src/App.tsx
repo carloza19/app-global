@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import ProductList from './components/ProductsList';
-import ProductDetails from './components/ProductDetails';
+import ProductDetailsContainer from './components/ProductDetailsContainer';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import { getAll } from './service/products.services';
 import { ProductInterface } from './interfaces/product.interfaces';
@@ -32,7 +32,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Link to={'/products'}><button> Ver lista de productos</button></Link>}></Route>
           <Route path='/products' element={<ProductList products={products} />}></Route>
-          <Route path='/products/:productId' element={<ProductDetails stateUpdate={handelUpdate} />}></Route>
+          <Route path='/products/:productId' element={<ProductDetailsContainer stateUpdate={handelUpdate} />}></Route>
         </Routes>
       </div>
     </BrowserRouter>
