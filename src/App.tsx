@@ -30,7 +30,7 @@ function App() {
       <div className="App">
         <h1>Global Ecommerce</h1>
         <Routes>
-        <Route path='/' element={<Link to={'/products'}><button> Ver lista de productos</button></Link>}></Route>
+          <Route path='/' element={<Link to={'/products'}><button> Ver lista de productos</button></Link>}></Route>
           <Route path='/products' element={<ProductList products={products} />}></Route>
           <Route path='/products/:productId' element={<ProductDetails stateUpdate={handelUpdate} />}></Route>
         </Routes>
