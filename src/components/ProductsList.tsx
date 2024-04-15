@@ -4,7 +4,6 @@ import { ProductInterface } from "../interfaces/product.interfaces"
 interface Props {
     products: Array<ProductInterface>
 }
-
 const ProductList = ({ products }: Props) => {
     return (
         <>
