@@ -1,7 +1,7 @@
 export interface ProductInterface {
     _id: string,
     title: string,
-    price: number, //TODO: Pasar a int
+    price: number,
     description: string,
     img: {
         src: string,
